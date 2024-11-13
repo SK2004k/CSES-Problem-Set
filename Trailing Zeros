@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    long long n;
+    cin >> n;
+    
+    long long count_of_fives = 0;
+    for (long long i = 5; i <= n; i *= 5) { // Since each trailing zero is created by a pair of factors (2,5), the number of pairs is limited by the smaller count — which is always the count of factors of 5.
+        count_of_fives += n / i;
+    }
+ 
+    cout << count_of_fives << endl;
+    return 0;
+}

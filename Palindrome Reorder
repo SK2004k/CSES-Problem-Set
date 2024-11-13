@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define mod 1000000007;
+int main()
+{
+    string s;
+    cin>>s;
+    int odd=0;
+    unordered_map<char,int>m;
+    for(auto i:s)
+    m[i]++; // count frequency of each character
+    string ans="" , mid="";
+    
+    for(auto &i: m)
+    {
+        if(i.second%2)
+        {odd++;
+        if(odd>1)
+        break;
+        mid += i.first;
+        i.second--;
+        }
+    }
+     
+
+    if((odd>=1 && s.size()%2==0) || odd>1)
+    cout<<"NO SOLUTION";
+    else
+    {
+        ans += mid;
+        // cout<<ans<<endl;
+        for(auto &i: m)
+     {
+        string tem = "";
+
+         while(i.second)
+        {
+            tem += i.first;
+            i.second -= 2;
+            //    cout<<ans<<endl;
+        }
+        ans = tem + ans + tem;
+            //   cout<<i.first<<"  "<<ans<<endl;
+    }
+        cout<<ans;}
+}

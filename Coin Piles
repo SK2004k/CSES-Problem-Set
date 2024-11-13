@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define mod 1000000007;
+int main()
+{
+    int t;
+    cin >> t;
+    
+    while (t--) {
+        long long a, b;
+        cin >> a >> b;
+        
+        // Check if (a + b) is divisible by 3 and neither pile exceeds twice the other
+        if ((a + b) % 3 == 0 && a <= 2 * b && b <= 2 * a) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+    
+}

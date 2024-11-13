@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define mod 1000000007;
+void generate_permutations(string &s,vector<int>&vis,string &p,set<string>&ans)
+{
+    if(p.size()==s.size())
+    {
+        ans.insert(p);
+        return;
+    }
+    for(int i=0;i<s.size();i++)
+    {
+        if(vis[i]==0)
+        {
+            vis[i]=1;
+            p+= s[i];
+            generate_permutations(s,vis,p,ans);
+            p.pop_back();
+            vis[i]=0;
+        }
+    }
+}
+int main()
+{
+    string s,p="";
+    cin>>s;
+    vector<int>vis(s.size(),0);
+    set<string>ans;
+    generate_permutations(s,vis,p,ans);
+    cout<<ans.size()<<endl;
+    for(auto&i: ans )
+    cout<<i<<endl;
+}

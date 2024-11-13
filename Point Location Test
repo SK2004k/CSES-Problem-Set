@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define mod 1000000007;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long x1,y1,x2,y2,x,y;
+        cin>>x1>>y1>>x2>>y2>>x>>y;
+        long long val = (x2-x1)*(y-y1) - (y2-y1)*(x-x1);
+        if(val==0)
+        cout<<"TOUCH\n";
+        else
+        if(val>0)
+        cout<<"LEFT\n";
+        else
+        cout<<"RIGHT\n";
+    }
+}

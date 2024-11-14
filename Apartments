@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define mod 1000000007;
+
+int main()
+{
+    long n,m,k;
+    cin>>n>>m>>k;
+    vector<long long>a_size,d_size;
+    for(int i=0;i<n;i++)
+    {
+        long long x;
+        cin>>x;
+        a_size.push_back(x);
+    }
+    sort(a_size.begin(),a_size.end());
+    for(int i=0;i<m;i++)
+    {
+        long long x;
+        cin>>x;
+        d_size.push_back(x);
+    }
+     sort(d_size.begin(),d_size.end());
+    long long ans=0,i=0,j=0;
+    while(i<n && j<m)
+    {
+        if((a_size[i]>= d_size[j] -k) &&( a_size[i]<= d_size[j] + k))
+        {
+            ans ++;
+            i++;
+            j++;
+        }
+        else
+        if(a_size[i]<d_size[j] - k)
+        {
+            i++;
+        }
+        else
+        {
+            j++;
+        }
+    }
+    cout<<ans;
+    
+}
